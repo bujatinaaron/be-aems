@@ -13,7 +13,7 @@ public class CorsConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("*"); // Allow requests from any origin (localhost:8080 included)
+        config.addAllowedOrigin("http://localhost:8100"); // Allow requests from any origin (localhost:8080 included)
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
