@@ -8,6 +8,7 @@ spring:
       database: AEMS
       authentication-database: admin
       uri: mongodb+srv://groupsixcapstone:group6capstone@AEMS.n9rir88.mongodb.net/?retryWrites=true&w=majority
+
 # Mail settings
   mail:
     host: smtp.gmail.com
