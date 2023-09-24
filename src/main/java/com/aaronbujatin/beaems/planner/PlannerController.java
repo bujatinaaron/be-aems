@@ -10,7 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/planner")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:8100")
 public class PlannerController {
 
     private final PlannerService plannerService;

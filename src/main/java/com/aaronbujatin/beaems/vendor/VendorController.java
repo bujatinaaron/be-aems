@@ -10,7 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/vendors")
-@CrossOrigin("localhost:8100")
+@CrossOrigin("http://localhost:8100")
 public class VendorController {
 
     private final VendorService vendorService;

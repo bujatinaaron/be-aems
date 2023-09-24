@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:8100")
 public class AuthenticationController {
 
 

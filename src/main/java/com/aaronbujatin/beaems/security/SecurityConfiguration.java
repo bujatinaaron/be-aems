@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/v1/sign-in", "/api/v1/users/signup")
                         .permitAll()
                         .anyRequest()
-                        .authenticated())
+                        .permitAll())
                 .httpBasic(withDefaults())
                 .cors();
         return httpSecurity.build();
