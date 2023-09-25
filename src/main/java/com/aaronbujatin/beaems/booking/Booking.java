@@ -17,16 +17,16 @@ public class Booking {
     @Id
     private String id;
     private String eventName;
-    private LocalDate bookingDate;
-    private String bookingStatus;
+    private String themeStyle;
+    private String address ;
+    private String bookingStatus ;
     private String bookingSource;
-    private String clientName;
-    private String clientContactNumber;
-    private String email;
-    private String address;
+    private LocalDate bookingDate ;
+    private String clientName ;
+    private String clientContactNumber ;
+    private String email ;
     private LocalDate weddingDate;
     private String weddingType;
-    private String themeStyle;
     private String ceremonyVenue;
     private String receptionVenue;
     private String expectedGuestNumber;

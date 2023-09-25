@@ -35,7 +35,7 @@ public class VendorService {
             newVendor.setEmail(vendor.getEmail());
             newVendor.setVendorType(vendor.getVendorType());
             newVendor.setWebsite(vendor.getWebsite());
-            newVendor.setStatus(vendor.getStatus());
+
             newVendor.setContact(vendor.getContact());
             newVendor.setPaymentStatus(vendor.getPaymentStatus());
 
