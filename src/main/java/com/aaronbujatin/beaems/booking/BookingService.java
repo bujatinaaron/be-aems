@@ -24,6 +24,9 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
+    public List<Booking> getBookingByOrganizerName(String organizerName){
+        return bookingRepository.findByOrganizerName(organizerName);
+    }
 
 
 
