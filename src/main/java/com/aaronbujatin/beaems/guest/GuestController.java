@@ -12,6 +12,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/guests")
+@CrossOrigin(origins = "*")
 public class GuestController {
 
     private final GuestService guestService;
