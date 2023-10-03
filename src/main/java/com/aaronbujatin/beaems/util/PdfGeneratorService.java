@@ -3,6 +3,7 @@ package com.aaronbujatin.beaems.util;
 import com.aaronbujatin.beaems.booking.Booking;
 import com.aaronbujatin.beaems.booking.BookingRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.pdfbox.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -37,9 +39,12 @@ public class PdfGeneratorService {
                     // Set font and font size
                     contentStream.setFont(PDType1Font.HELVETICA, 14);
 
-                    String imagePathString  = "resources\\images\\sweet-serenity-pdf-logo.png";
-                    Path imagePath = Paths.get(imagePathString);
-                    PDImageXObject pdImage = PDImageXObject.createFromFile(imagePath.toString(), document);
+//                    String imagePathString  = "resources\\images\\sweet-serenity-pdf-logo.png";
+//                    Path imagePath = Paths.get(imagePathString);
+//                    PDImageXObject pdImage = PDImageXObject.createFromFile(imagePath.toString(), document);
+                    InputStream inputStream = getClass().getResourceAsStream("/images/sweet-serenity-pdf-logo.png");
+                    PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, IOUtils.toByteArray(inputStream), "sweet-serenity-pdf-logo");
+
                     contentStream.drawImage(pdImage, 25, 570, 220, 220);
 
                     contentStream.beginText();
