@@ -37,9 +37,9 @@ public class PdfGeneratorService {
                     // Set font and font size
                     contentStream.setFont(PDType1Font.HELVETICA, 14);
 
-                    String imagePath = "resources\\images\\sweet-serenity-pdf-logo.png";
-                 
-                    PDImageXObject pdImage = PDImageXObject.createFromFile(imagePath, document);
+                    String imagePathString  = "resources\\images\\sweet-serenity-pdf-logo.png";
+                    Path imagePath = Paths.get(imagePathString);
+                    PDImageXObject pdImage = PDImageXObject.createFromFile(imagePath.toString(), document);
                     contentStream.drawImage(pdImage, 25, 570, 220, 220);
 
                     contentStream.beginText();
