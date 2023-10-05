@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -25,6 +26,11 @@ public class GuestController {
     @GetMapping("/{id}")
     public ResponseEntity<Guest> getGuestById(@PathVariable("id") String id){
         return new ResponseEntity<>(guestService.getGuestById(id), HttpStatus.OK);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Guest>> getAllGuestByStatus(@RequestParam String status){
+        return new ResponseEntity<>(guestService.getAllGuestByStatus(status), HttpStatus.OK);
     }
 
 

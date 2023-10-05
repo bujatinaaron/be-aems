@@ -13,6 +13,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -28,11 +29,11 @@ public class GuestService {
 
         String qrCodeText = "Name: " + guest.getFirstName() + " " +  guest.getLastName() +
                 "\nEmail: " + guest.getEmail() +
-                "\nTable number: " + guest.getTableNumber() +
                 "\nRelatedness: " + guest.getRelatedness();
 
         byte[] qrCodeImageBytes = QRCodeGenerator.generateQRCodeImage(qrCodeText, 300, 300);
         sendEmail(qrCodeImageBytes, guest);
+        guest.setStatus("confirmed");
         return guestRepository.save(guest);
     }
 
@@ -53,6 +54,10 @@ public class GuestService {
         helper.addAttachment("qrcode.png", resource);
 
         emailSender.send(message);
+    }
+
+    public List<Guest> getAllGuestByStatus(String status){
+        return guestRepository.findByStatus(status);
     }
 
 
