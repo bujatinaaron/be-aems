@@ -60,5 +60,9 @@ public class GuestService {
         return guestRepository.findByStatus(status);
     }
 
+    public List<Guest> getAllGuest(){
+        return guestRepository.findAll();
+    }
+
 
 }

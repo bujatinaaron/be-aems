@@ -33,5 +33,10 @@ public class GuestController {
         return new ResponseEntity<>(guestService.getAllGuestByStatus(status), HttpStatus.OK);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Guest>> getAllGuest(){
+        return new ResponseEntity<>(guestService.getAllGuest(), HttpStatus.OK);
+    }
+
 
 }
