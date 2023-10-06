@@ -8,5 +8,7 @@ public interface GuestRepository extends MongoRepository<Guest, String> {
 
     List<Guest> findByStatus(String status);
 
+    List<Guest> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(String firstName, String lastName);
+
 
 }

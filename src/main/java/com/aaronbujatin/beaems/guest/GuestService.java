@@ -33,7 +33,7 @@ public class GuestService {
 
         byte[] qrCodeImageBytes = QRCodeGenerator.generateQRCodeImage(qrCodeText, 300, 300);
         sendEmail(qrCodeImageBytes, guest);
-        guest.setStatus("confirmed");
+        guest.setStatus("undecided");
         return guestRepository.save(guest);
     }
 
@@ -62,6 +62,10 @@ public class GuestService {
 
     public List<Guest> getAllGuest(){
         return guestRepository.findAll();
+    }
+
+    public List<Guest> searchGuestsByFirstNameOrLastName(String query) {
+        return guestRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(query, query);
     }
 
 

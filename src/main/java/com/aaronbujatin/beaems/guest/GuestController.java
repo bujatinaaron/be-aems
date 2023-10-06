@@ -38,5 +38,11 @@ public class GuestController {
         return new ResponseEntity<>(guestService.getAllGuest(), HttpStatus.OK);
     }
 
+    @GetMapping("/filter")
+    public ResponseEntity<List<Guest>> searchGuests(@RequestParam String searchQuery) {
+        List<Guest> searchResults = guestService.searchGuestsByFirstNameOrLastName(searchQuery);
+        return new ResponseEntity<>(searchResults, HttpStatus.OK);
+    }
+
 
 }
