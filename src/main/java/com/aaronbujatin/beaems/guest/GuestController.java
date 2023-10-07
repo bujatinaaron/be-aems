@@ -28,9 +28,10 @@ public class GuestController {
         return new ResponseEntity<>(guestService.getGuestById(id), HttpStatus.OK);
     }
 
-    @GetMapping()
-    public ResponseEntity<List<Guest>> getAllGuestByStatus(@RequestParam String status){
-        return new ResponseEntity<>(guestService.getAllGuestByStatus(status), HttpStatus.OK);
+    @GetMapping("/filter")
+    public ResponseEntity<List<Guest>> getAllGuestByStatus(@RequestParam String eventName, @RequestParam String status){
+
+        return new ResponseEntity<>(guestService.getAllByEventNameAndStatus(eventName,status), HttpStatus.OK);
     }
 
     @GetMapping("/all")
@@ -38,10 +39,16 @@ public class GuestController {
         return new ResponseEntity<>(guestService.getAllGuest(), HttpStatus.OK);
     }
 
-    @GetMapping("/filter")
-    public ResponseEntity<List<Guest>> searchGuests(@RequestParam String searchQuery) {
-        List<Guest> searchResults = guestService.searchGuestsByFirstNameOrLastName(searchQuery);
+    @GetMapping("/search")
+    public ResponseEntity<List<Guest>> searchGuests(@RequestParam String eventName, @RequestParam String searchQuery) {
+        List<Guest> searchResults = guestService.searchGuestsByFirstNameOrLastName(eventName,searchQuery);
         return new ResponseEntity<>(searchResults, HttpStatus.OK);
+    }
+
+    @GetMapping("/event")
+    public ResponseEntity<List<Guest>> getAllByEventNameReference(@RequestParam String eventName){
+        List<Guest> guestsByEventNameReferenceResult = guestService.getAllByEventNameReference(eventName);
+        return new ResponseEntity<>(guestsByEventNameReferenceResult, HttpStatus.OK);
     }
 
 

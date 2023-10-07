@@ -17,6 +17,7 @@ public class Guest {
     private String lastName;
     private String email;
     private String relatedness;
+    private String eventNameReference;
     private String status;
 
 }

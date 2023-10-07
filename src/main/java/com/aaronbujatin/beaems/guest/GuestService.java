@@ -56,16 +56,21 @@ public class GuestService {
         emailSender.send(message);
     }
 
-    public List<Guest> getAllGuestByStatus(String status){
-        return guestRepository.findByStatus(status);
+    public List<Guest> getAllByEventNameAndStatus(String eventName, String status){
+        return guestRepository.findByEventNameReferenceAndStatus(eventName, status);
     }
 
     public List<Guest> getAllGuest(){
         return guestRepository.findAll();
     }
 
-    public List<Guest> searchGuestsByFirstNameOrLastName(String query) {
-        return guestRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(query, query);
+    public List<Guest> searchGuestsByFirstNameOrLastName(String eventName,String query) {
+        return guestRepository.findByEventNameReferenceAndFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(
+                eventName, query, eventName, query);
+    }
+
+    public List<Guest> getAllByEventNameReference(String eventNameReference){
+        return guestRepository.findByEventNameReference(eventNameReference);
     }
 
 

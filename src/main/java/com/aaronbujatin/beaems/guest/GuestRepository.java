@@ -6,9 +6,12 @@ import java.util.List;
 
 public interface GuestRepository extends MongoRepository<Guest, String> {
 
-    List<Guest> findByStatus(String status);
+    List<Guest> findByEventNameReferenceAndStatus(String eventName, String status);
 
-    List<Guest> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(String firstName, String lastName);
+    List<Guest> findByEventNameReferenceAndFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(
+            String eventName, String firstName, String eventName2, String lastName);
+
+    List<Guest> findByEventNameReference(String eventNameReference);
 
 
 }
