@@ -3,6 +3,7 @@ package com.aaronbujatin.beaems.guest;
 import com.google.zxing.WriterException;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +50,11 @@ public class GuestController {
     public ResponseEntity<List<Guest>> getAllByEventNameReference(@RequestParam String eventName){
         List<Guest> guestsByEventNameReferenceResult = guestService.getAllByEventNameReference(eventName);
         return new ResponseEntity<>(guestsByEventNameReferenceResult, HttpStatus.OK);
+    }
+
+    @GetMapping("/confirm-account")
+    public ResponseEntity<String> confirmAttendance(@RequestParam("token") String confirmationToken){
+        return new ResponseEntity<>(guestService.confirmEmail(confirmationToken), HttpStatus.OK);
     }
 
 

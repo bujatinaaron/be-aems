@@ -13,5 +13,6 @@ public interface GuestRepository extends MongoRepository<Guest, String> {
 
     List<Guest> findByEventNameReference(String eventNameReference);
 
+    Guest findByEmailIgnoreCase(String email);
 
 }
