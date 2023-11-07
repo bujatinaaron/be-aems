@@ -1,5 +1,6 @@
 package com.aaronbujatin.beaems.booking;
 
+import com.aaronbujatin.beaems.registration.RegistrationFee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,26 +17,28 @@ public class Booking {
 
     @Id
     private String id;
-    private String eventName;
-    private String themeStyle;
-    private String address ;
-    private String bookingStatus ;
-    private String bookingSource;
-    private LocalDate bookingDate ;
-    private String clientName ;
-    private String clientContactNumber ;
-    private String email ;
-    private LocalDate weddingDate;
-    private String weddingType;
-    private String ceremonyVenue;
-    private String receptionVenue;
-    private String expectedGuestNumber;
+    private String clientName;
+    private String clientContactNumber;
+    private String email;
     private String groomName;
     private String groomContactNumber;
     private String brideName;
     private String brideContactNumber;
-    private String paymentMethod;
+    private String address;
+    private LocalDate weddingDate;
+    private String weddingType;
+    private String weddingTheme;
+    private String ceremonyVenue;
+    private String receptionVenue;
     private String selectedPackage;
+    private RegistrationFee registrationFee;
+    private String eventName;
+    private String bookingStatus;
+    private String bookingSource;
+    private LocalDate bookingDate;
     private String organizerName;
-    private double amountPaid;
+
+
+
+
 }

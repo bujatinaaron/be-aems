@@ -1,5 +1,6 @@
 package com.aaronbujatin.beaems.booking;
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,16 +8,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/bookings")
-@CrossOrigin(origins = "*")
 public class BookingController {
 
     private final BookingService bookingService;
 
     @PostMapping
-    public ResponseEntity<Booking> save(@RequestBody Booking booking){
+    public ResponseEntity<Booking> save(@RequestBody Booking booking) throws MessagingException {
         return new ResponseEntity<>(bookingService.save(booking), HttpStatus.CREATED);
     }
 
