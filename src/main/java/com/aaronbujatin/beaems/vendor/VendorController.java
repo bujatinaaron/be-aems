@@ -25,9 +25,9 @@ public class VendorController {
         return new ResponseEntity<>(vendorService.getVendorById(id), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Vendor>> getAllVendors(){
-        return new ResponseEntity<>(vendorService.getAllVendors(), HttpStatus.OK);
+    @GetMapping("/event/{organizerName}")
+    public ResponseEntity<List<Vendor>> getAllVendors(@PathVariable String organizerName){
+        return new ResponseEntity<>(vendorService.getAllVendorByEventName(organizerName), HttpStatus.OK);
     }
 
 }

@@ -11,8 +11,18 @@ public class VendorService {
 
     private final VendorRepository vendorRepository;
 
-    public Vendor save(Vendor vendor){
-        return vendorRepository.save(vendor);
+    public Vendor save(Vendor vendorRequest){
+
+        String eventNameReference = vendorRequest.getEventNameReference();
+        String vendorType = vendorRequest.getVendorType();
+        Vendor vendor = vendorRepository.findByEventNameReferenceAndVendorType(eventNameReference, vendorType);
+
+        if(vendor != null){
+            throw new IllegalStateException("Vendor " + vendorType + " is already exist.");
+        }
+
+
+        return vendorRepository.save(vendorRequest);
     }
 
     public Vendor getVendorById(String id){
@@ -21,6 +31,10 @@ public class VendorService {
 
     public List<Vendor> getAllVendors(){
         return vendorRepository.findAll();
+    }
+
+    public List<Vendor> getAllVendorByEventName(String organizerName){
+        return vendorRepository.findByOrganizerName(organizerName);
     }
 
     public Vendor update(String id, Vendor vendor){

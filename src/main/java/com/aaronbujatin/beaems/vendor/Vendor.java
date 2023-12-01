@@ -27,5 +27,6 @@ public class Vendor {
     private String paymentStatus;
     private double finalCost;
     private String contractDescription;
+    private String organizerName;
 
 }

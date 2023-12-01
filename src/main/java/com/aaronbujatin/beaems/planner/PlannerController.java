@@ -25,9 +25,9 @@ public class PlannerController {
         return new ResponseEntity<>(plannerService.getPlannerById(id), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Planner>> getAllPlanner(){
-        return new ResponseEntity<>(plannerService.getAllPlanner(), HttpStatus.OK);
+    @GetMapping("/organizer/{organizerName}")
+    public ResponseEntity<List<Planner>> getAllPlanner(@PathVariable String organizerName){
+        return new ResponseEntity<>(plannerService.getPlannerByOrganizerName(organizerName), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

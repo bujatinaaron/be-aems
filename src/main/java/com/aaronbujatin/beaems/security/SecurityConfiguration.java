@@ -33,7 +33,7 @@ public class SecurityConfiguration {
                         .anyRequest()
                         .permitAll())
                 .httpBasic(withDefaults())
-                .cors();
+                .cors(AbstractHttpConfigurer::disable);
         return httpSecurity.build();
     }
 

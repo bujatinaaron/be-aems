@@ -23,5 +23,6 @@ public class Planner {
     private LocalDate date;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private LocalTime time;
+    private String organizerName;
 
 }

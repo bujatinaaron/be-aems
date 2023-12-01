@@ -19,8 +19,8 @@ public class PlannerService {
         return plannerRepository.findById(id).get();
     }
 
-    public List<Planner> getAllPlanner(){
-        return plannerRepository.findAll();
+    public List<Planner> getPlannerByOrganizerName(String organizerName){
+        return plannerRepository.findByOrganizerName(organizerName);
     }
 
     public Planner updatePlanner(Planner planner, String id){
